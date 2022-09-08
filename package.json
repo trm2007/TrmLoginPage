@@ -1,5 +1,5 @@
 {
-    "name": "ite-login-page",
+    "name": "trm-login-page",
     "version": "1.0.1",
     "description": "TRM LoginPage - simple vue-component",
     "homepage": "https://github.com/trm2007/TrmLoginPage",
@@ -15,18 +15,15 @@
         "loginpage"
     ],
     "repository": {
-        "url": "https://github.com/trm2007/TrmLoginPage.git",
-        "type": "git"
-    },
-    "publishConfig": {
-        "access": "public"
+        "type": "git",
+        "url": "git+https://github.com/trm2007/TrmLoginPage.git"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^6.2.0",
-        "vue-template-compiler": "^2.7.10"
     },
     "devDependencies": {},
     "peerDependencies": {
+        "@fortawesome/fontawesome-free": "^6.2.0",
+        "vue-template-compiler": "^2.7.10",
         "vue": "^2.7.10",
         "vue-loader": "^15.10.0"
     }
