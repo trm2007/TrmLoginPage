@@ -1,13 +1,13 @@
 {
     "name": "ite-login-page",
-    "version": "1.0.1",
-    "description": "ITE LoginPage for building App",
-    "homepage": "http://git.ite-ng.ru/cont/loginpage",
+    "version": "1.0.0",
+    "description": "TRM LoginPage - simple vue-component",
+    "homepage": "https://github.com/trm2007/TrmLoginPage.git",
     "license": "MIT",
     "main": "index.js",
     "author": {
         "name": "Sergey Kolesnikov",
-        "email": "kolesnsv@ite-ng.ru"
+        "email": "trm@mail.ru"
     },
     "keywords": [
         "ite",
@@ -15,7 +15,7 @@
         "loginpage"
     ],
     "repository": {
-        "url": "http://git.ite-ng.ru/cont/loginpage.git",
+        "url": "https://github.com/trm2007/TrmLoginPage.git",
         "type": "git"
     },
     "scripts": {
