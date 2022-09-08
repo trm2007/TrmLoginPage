@@ -60,13 +60,6 @@
 </template>
 
 <script>
-// require("semantic-ui-css/semantic.min.css");
-// require("font-awesome/css/font-awesome.min.css");
-// require("@fortawesome/fontawesome-free/css/fontawesome.min.css");
-// require("@fortawesome/fontawesome-free/css/solid.css");
-// require("@fortawesome/fontawesome-free/js/solid.js");
-// require("@fortawesome/fontawesome-free/js/all.js");
-import axios from "axios";
 import LoginForm from "./src/LoginForm";
 
 export default {
@@ -247,18 +240,36 @@ export default {
                 this.SubmitCallback(data);
             }
             if (this.SubmitUrl) {
-                axios
-                    .post(this.SubmitUrl, data)
+                fetch(this.SubmitUrl, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                })
                     .then((response) => {
-                        console.log("AXIOS then: ", response);
-                        if (this.AjaxResponseCallback) {
-                            this.AjaxResponseCallback(response);
+                        if (!response.ok) {
+                            throw new Error(
+                                "Status: " +
+                                    response.status +
+                                    ", " +
+                                    response.statusText
+                            );
                         }
+                        console.log(
+                            "[submitForm fetch then] ===> response: ",
+                            response
+                        );
+                        if (this.AjaxResponseCallback) {
+                            return this.AjaxResponseCallback(response);
+                        }
+
+                        return response;
                     })
                     .catch((error) => {
                         let ErrorMessage = "";
                         if (error instanceof Error) {
-                            console.log(
+                            console.error(
                                 "[submitForm] catch ",
                                 error.name,
                                 error.message
@@ -269,20 +280,61 @@ export default {
                             typeof error === typeof [1]
                         ) {
                             let keys = Object.keys(error);
-                            console.log("keys: ", keys);
+                            console.error("keys: ", keys);
 
                             for (let key in error) {
-                                console.log(`[${key}] => ${error[key]}`);
+                                console.error(`[${key}] => ${error[key]}`);
                                 ErrorMessage += error[key];
                             }
                         } else {
-                            console.log(error);
+                            console.error(error);
                             ErrorMessage = error;
                         }
                         this.CurrentErrorMessage = ErrorMessage;
                     });
             }
         },
+        // submitForm_old: function (data) {
+        //     if (this.SubmitCallback) {
+        //         this.SubmitCallback(data);
+        //     }
+        //     if (this.SubmitUrl) {
+        //         axios
+        //             .post(this.SubmitUrl, data)
+        //             .then((response) => {
+        //                 console.log("AXIOS then: ", response);
+        //                 if (this.AjaxResponseCallback) {
+        //                     this.AjaxResponseCallback(response);
+        //                 }
+        //             })
+        //             .catch((error) => {
+        //                 let ErrorMessage = "";
+        //                 if (error instanceof Error) {
+        //                     console.log(
+        //                         "[submitForm] catch ",
+        //                         error.name,
+        //                         error.message
+        //                     );
+        //                     ErrorMessage = error.message;
+        //                 } else if (
+        //                     typeof error === typeof { a: 1 } ||
+        //                     typeof error === typeof [1]
+        //                 ) {
+        //                     let keys = Object.keys(error);
+        //                     console.log("keys: ", keys);
+
+        //                     for (let key in error) {
+        //                         console.log(`[${key}] => ${error[key]}`);
+        //                         ErrorMessage += error[key];
+        //                     }
+        //                 } else {
+        //                     console.log(error);
+        //                     ErrorMessage = error;
+        //                 }
+        //                 this.CurrentErrorMessage = ErrorMessage;
+        //             });
+        //     }
+        // },
     },
 };
 </script>
