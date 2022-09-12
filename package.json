@@ -1,6 +1,6 @@
 {
     "name": "@trm2007/trm_login_page",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "TRM LoginPage - simple vue-component",
     "homepage": "https://github.com/trm2007/trm_login_page",
     "license": "MIT",
