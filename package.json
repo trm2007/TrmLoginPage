@@ -1,13 +1,11 @@
 {
-  "name": "trm-login-page",
+  "name": "@trm2007/trm_login_page",
   "version": "1.0.1",
   "description": "TRM LoginPage - simple vue-component",
   "homepage": "https://github.com/trm2007/trm_login_page",
   "license": "MIT",
   "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com",
-    "trm_login_page": "@trm2007/trm_login_page"
+    "@trm2007:registry": "https://npm.pkg.github.com"
   },
   "main": "index.js",
   "author": "Sergey Kolesnikov <trm@mail.ru>",
