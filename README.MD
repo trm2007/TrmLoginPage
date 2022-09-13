@@ -6,13 +6,13 @@
 Теперь на странице используются собственные стили.
 
 <!-- В этом компоненте на 31.08.2022 используется css-библиотека - semantic-ui-css
-Послденее её обновление (по данным npmjs.com) произошло 4 года назад.
+Последнее её обновление (по данным npmjs.com) произошло 4 года назад.
 При ее установке возникает конфликт версий webpack из зависимости semantic-ui-css и нашим текущим.
 От этой библиотеки нужно избавиться, и переделать все стили. -->
 
 ## Описание
 
-Компонент LoginWrapper (на VUE 2.6.11) реализует страницу login выполнен в виде отдельной страницы.
+Компонент LoginWrapper (на VUE 2.7.10) реализует страницу login, выполнен в виде отдельной страницы.
 
 ## Подключение
 
@@ -62,15 +62,13 @@ new Vue({el: '#login-div'}); //
 
 - UserNamePlaceholder (user-name-placeholder) - placeholder для поля имя пользователя
 - PasswordPlaceholder (password-placeholder) - placeholder для поля с паролем
-- RememberLabel (remember-label) - если присвоено значение. то появлется checkbox remrmber_me с данной подписью
-- FormTitle (form-title) - звголовок формы
+- RememberLabel (remember-label) - если присвоено значение. то появляется checkbox remember_me с данной подписью
+- FormTitle (form-title) - заголовок формы
 - SubmitUrl (submit-url) - путь для action формы
-- BackgroundImage (background-image)* - фоновая картинк, 
+- BackgroundImage (background-image)* - фоновая картинка, 
   - если картинка задана в js-файле через LoginWrapper.props.BackgroundImage.default = "...",
   - то она перекроет картинку по умолчанию подгружаемую из "assets\components\LoginComponents\images\back.jpg",
   - если картинка задана как атрибут div-а в HTML-файле, то она перекроет все другие (в js и по умолчанию)...
 - FeedbackEmail (feedback-email) - E-mail для обратной связи, если задан, то справа появится надпись с предложением написать вопрос
-- ErrorMessage (error-message) - сообщение об ощибке, если указано, то сверху формы будет выведено предупреждение
+- ErrorMessage (error-message) - сообщение об ошибке, если указано, то сверху формы будет выведено предупреждение
 - RememberMe (remember-me) - флаг, показывать или нет поле "Remember Me" на форме, по умолчанию не показывается
-
-`*` в данной сборке WebPack настроен на копирование всего содержимого папки "assets/images" в папку "public/images"
